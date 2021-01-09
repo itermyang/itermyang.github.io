@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>调度算法 | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="调度算法 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="博客主题:叶落阁">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://itermyang.github.io/about/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="博客主题:叶落阁">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-13T03:24:02.000Z">
+<meta property="article:modified_time" content="2021-01-07T08:10:16.157Z">
+<meta property="article:author" content="intern">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/dog.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/dog.png" />
+</a>
+<div class="author">
+    <span>intern</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/mu-wei-24-51" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:2264178649@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2264178649&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(34)</small></div></li>
+    
+        
+            
+            <li><div data-rel="博客">博客<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机"><i class="fold iconfont icon-right"></i>计算机<small>(22)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="计算机<--->操作系统">操作系统<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="计算机<--->基础">基础<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="计算机<--->实践">实践<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="计算机<--->数据结构">数据结构<small>(17)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="生活"><i class="fold iconfont icon-right"></i>生活<small>(4)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="生活<--->教育">教育<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="生活<--->期望">期望<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="English">English<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  site_url"  href="/about">About</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>遍历</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>查找</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>存储</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>二叉树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>理想</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学公式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>心情</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>语法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>正则表达式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AVL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>English</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>github</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>have done</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>to do</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 计算机 基础 "
+           href="/2021/01/09/sql%E8%AF%AD%E5%8F%A5%E5%A4%A7%E5%85%A8/"
+           data-tag="sql"
+           data-author="" >
+            <span class="post-title" title="sql语句大全">sql语句大全</span>
+            <span class="post-date" title="2021-01-09 17:28:03">2021/01/09</span>
+        </a>
+        
+        <a  class="All 计算机 基础 "
+           href="/2021/01/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+           data-tag="正则表达式"
+           data-author="" >
+            <span class="post-title" title="正则表达式">正则表达式</span>
+            <span class="post-date" title="2021-01-09 01:21:07">2021/01/09</span>
+        </a>
+        
+        <a  class="All "
+           href="/2020/10/17/%E5%89%A7%E6%9C%AC%E7%89%87%E6%AE%B5%E8%8A%82%E9%80%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="剧本片段节选">剧本片段节选</span>
+            <span class="post-date" title="2020-10-17 02:22:12">2020/10/17</span>
+        </a>
+        
+        <a  class="All "
+           href="/2020/09/20/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2020-09-20 20:06:48">2020/09/20</span>
+        </a>
+        
+        <a  class="All 计算机 基础 "
+           href="/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机快捷键">计算机快捷键</span>
+            <span class="post-date" title="2020-07-20 18:32:16">2020/07/20</span>
+        </a>
+        
+        <a  class="All 生活 教育 "
+           href="/2020/04/25/%E5%BF%AB%E4%B9%90%E6%95%99%E8%82%B2(%E6%91%98%E6%8A%84)/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="快乐教育(摘抄)">快乐教育(摘抄)</span>
+            <span class="post-date" title="2020-04-25 13:09:13">2020/04/25</span>
+        </a>
+        
+        <a  class="All 生活 "
+           href="/2020/04/17/%E5%A5%BD%E8%AF%97%E5%A5%BD%E5%8F%A5/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="好诗好句">好诗好句</span>
+            <span class="post-date" title="2020-04-17 11:49:01">2020/04/17</span>
+        </a>
+        
+        <a  class="All 生活 期望 "
+           href="/2020/03/30/%E4%BA%94%E5%B9%B4%E5%90%8E/"
+           data-tag="理想"
+           data-author="" >
+            <span class="post-title" title="五年后">五年后</span>
+            <span class="post-date" title="2020-03-30 12:40:06">2020/03/30</span>
+        </a>
+        
+        <a  class="All 计算机 操作系统 "
+           href="/2020/03/05/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="调度算法">调度算法</span>
+            <span class="post-date" title="2020-03-05 14:15:51">2020/03/05</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/03/02/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83%E5%8F%8A%E5%BA%94%E7%94%A8/"
+           data-tag="排序"
+           data-author="" >
+            <span class="post-title" title="排序算法的比较及应用">排序算法的比较及应用</span>
+            <span class="post-date" title="2020-03-02 15:31:22">2020/03/02</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/03/01/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%92%8C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序"
+           data-author="" >
+            <span class="post-title" title="归并排序和基数排序">归并排序和基数排序</span>
+            <span class="post-date" title="2020-03-01 21:41:02">2020/03/01</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/03/01/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2020-03-01 16:27:40">2020/03/01</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/03/01/%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/"
+           data-tag="排序"
+           data-author="" >
+            <span class="post-title" title="交换排序">交换排序</span>
+            <span class="post-date" title="2020-03-01 15:44:11">2020/03/01</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/03/01/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2020-03-01 12:54:12">2020/03/01</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/29/%E6%95%A3%E5%88%97-Hash-%E8%A1%A8/"
+           data-tag="查找"
+           data-author="" >
+            <span class="post-title" title="散列(Hash)表">散列(Hash)表</span>
+            <span class="post-date" title="2020-02-29 13:06:20">2020/02/29</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/28/%E5%90%84%E6%9F%A5%E6%89%BE%E5%B9%B3%E5%9D%87%E6%9F%A5%E6%89%BE%E9%95%BF%E5%BA%A6/"
+           data-tag="查找,AVL"
+           data-author="" >
+            <span class="post-title" title="各查找平均查找长度">各查找平均查找长度</span>
+            <span class="post-date" title="2020-02-28 20:30:44">2020/02/28</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/27/%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8/"
+           data-tag="图"
+           data-author="" >
+            <span class="post-title" title="图的应用">图的应用</span>
+            <span class="post-date" title="2020-02-27 15:25:59">2020/02/27</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/27/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/"
+           data-tag="遍历"
+           data-author="" >
+            <span class="post-title" title="图的遍历">图的遍历</span>
+            <span class="post-date" title="2020-02-27 12:41:38">2020/02/27</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/26/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8/"
+           data-tag="存储"
+           data-author="" >
+            <span class="post-title" title="图的存储">图的存储</span>
+            <span class="post-date" title="2020-02-26 21:56:01">2020/02/26</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/19/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="赫夫曼树及其应用">赫夫曼树及其应用</span>
+            <span class="post-date" title="2020-02-19 12:10:09">2020/02/19</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/19/%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/"
+           data-tag="树"
+           data-author="" >
+            <span class="post-title" title="树和森林">树和森林</span>
+            <span class="post-date" title="2020-02-19 11:05:34">2020/02/19</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/18/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E5%92%8C%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"
+           data-tag="二叉树,遍历"
+           data-author="" >
+            <span class="post-title" title="二叉树的遍历和线索二叉树">二叉树的遍历和线索二叉树</span>
+            <span class="post-date" title="2020-02-18 18:58:27">2020/02/18</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5/"
+           data-tag="二叉树"
+           data-author="" >
+            <span class="post-title" title="二叉树的概念">二叉树的概念</span>
+            <span class="post-date" title="2020-02-15 21:14:42">2020/02/15</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/15/%E6%A0%91/"
+           data-tag="树"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2020-02-15 20:10:57">2020/02/15</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/14/%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8/"
+           data-tag="存储"
+           data-author="" >
+            <span class="post-title" title="特殊矩阵的压缩存储">特殊矩阵的压缩存储</span>
+            <span class="post-date" title="2020-02-14 23:44:41">2020/02/14</span>
+        </a>
+        
+        <a  class="All 博客 "
+           href="/2020/02/14/Mathjax%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/"
+           data-tag="数学公式"
+           data-author="" >
+            <span class="post-title" title="Mathjax配置及使用">Mathjax配置及使用</span>
+            <span class="post-date" title="2020-02-14 21:58:09">2020/02/14</span>
+        </a>
+        
+        <a  class="All 计算机 数据结构 "
+           href="/2020/02/14/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E4%B9%8BKMP%E7%AE%97%E6%B3%95/"
+           data-tag="查找"
+           data-author="" >
+            <span class="post-title" title="模式匹配算法之KMP算法">模式匹配算法之KMP算法</span>
+            <span class="post-date" title="2020-02-14 21:12:15">2020/02/14</span>
+        </a>
+        
+        <a  class="All 博客 "
+           href="/2020/02/13/%E5%B7%B2%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8A%9F%E8%83%BD/"
+           data-tag="have done"
+           data-author="" >
+            <span class="post-title" title="已实现的博客功能">已实现的博客功能</span>
+            <span class="post-date" title="2020-02-13 15:43:05">2020/02/13</span>
+        </a>
+        
+        <a  class="All English "
+           href="/2020/02/10/%E8%8B%B1%E8%AF%AD%E8%AE%B0%E5%BD%95/"
+           data-tag="English"
+           data-author="" >
+            <span class="post-title" title="英语记录">英语记录</span>
+            <span class="post-date" title="2020-02-10 12:19:07">2020/02/10</span>
+        </a>
+        
+        <a  class="All 生活 "
+           href="/2020/01/11/%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E5%BF%83%E6%83%85%E6%94%BE%E6%9D%BE/"
+           data-tag="心情"
+           data-author="" >
+            <span class="post-title" title="如何保持心情放松">如何保持心情放松</span>
+            <span class="post-date" title="2020-01-11 17:37:04">2020/01/11</span>
+        </a>
+        
+        <a  class="All 博客 "
+           href="/2019/12/25/%E5%BE%85%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8A%9F%E8%83%BD/"
+           data-tag="to do"
+           data-author="" >
+            <span class="post-title" title="待实现的博客功能">待实现的博客功能</span>
+            <span class="post-date" title="2019-12-25 22:46:48">2019/12/25</span>
+        </a>
+        
+        <a  class="All 博客 "
+           href="/2019/12/24/md%E6%96%87%E4%BB%B6%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E5%BD%92%E7%BA%B3/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title=".md文件的常用语法归纳">.md文件的常用语法归纳</span>
+            <span class="post-date" title="2019-12-24 21:28:04">2019/12/24</span>
+        </a>
+        
+        <a  class="All 计算机 实践 "
+           href="/2019/12/22/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B/"
+           data-tag="to do"
+           data-author="" >
+            <span class="post-title" title="重装系统流程预模拟">重装系统流程预模拟</span>
+            <span class="post-date" title="2019-12-22 05:31:34">2019/12/22</span>
+        </a>
+        
+        <a  class="All 博客 "
+           href="/2019/12/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E5%9B%9E%E9%A1%BE%E6%80%BB%E7%BB%93(windows%E7%89%88)/"
+           data-tag="hexo,github"
+           data-author="" >
+            <span class="post-title" title="博客搭建过程回顾总结(windows版)">博客搭建过程回顾总结(windows版)</span>
+            <span class="post-date" title="2019-12-21 16:10:52">2019/12/21</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-调度算法" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">调度算法</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="计算机">计算机</a> > 
+            
+            <a  data-rel="计算机&lt;---&gt;操作系统">操作系统</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-01-07 18:26:56'>2020-03-05 14:15</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1-FCFS-First-Come-First-Service"><span class="toc-text">先来先服务(FCFS, First Come First Service)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88-SJF-Shortest-Job-First"><span class="toc-text">短作业优先(SJF,Shortest Job First)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-1"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%93%8D%E5%BA%94%E6%AF%94%E4%BC%98%E5%85%88-HRRN"><span class="toc-text">高响应比优先(HRRN)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-2"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%831"><span class="toc-text">比较1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%89%87%E8%BD%AE%E8%BD%AC-RR-Round-Robin"><span class="toc-text">时间片轮转(RR,Round Robin)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-3"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-text">优先级调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-4"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-text">多级反馈队列调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text">例题:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%832"><span class="toc-text">比较2</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="先来先服务-FCFS-First-Come-First-Service"><a href="#先来先服务-FCFS-First-Come-First-Service" class="headerlink" title="先来先服务(FCFS, First Come First Service)"></a>先来先服务(FCFS, First Come First Service)</h2><script type="math/tex; mode=display">
+FCFS
+\begin{cases}
+算法思想 & 主要从“公平”的角度考虑 \\[2ex]
+算法规则 & 按照作业/进程到达的先后顺序进行服务 \\[2ex]
+用于作业/进程调度 & 用于作业调度时,考虑的是哪个作业先到达后备队列; \\
+&用于进程调度时,考虑的是哪个进程先到达就绪队列 \\[2ex]
+是否可抢占？ & 非抢占式的算法 \\[2ex]
+优缺点 & 优点:公平、算法实现简单 \\
+&缺点:排在长作业(进程)后面的短作业需要等待很长时  \\
+&间,带权周转时间很大,对短作业来说用户体验不好.即: \\
+&FCFS算法对长作业有利,对短作业不利 \\[2ex]
+是否会导致饥饿 & 不会(note:饥饿指某进程/作用长期得不到服务.)
+\end{cases}</script><h3 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h3><p>&emsp;&emsp;各进程到达就绪队列的时间、需要的运行时间如下表所示。使用先来先服务调度算法，计算各进程的等待时间、平均等待时间、周转时间、平均周转时间、带权周转时间、平均带权周转时间。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 7 \\
+P2 & 2 & 4 \\
+P3 & 4 & 1 \\
+P4 & 5 & 4 \\
+\end{array}</script><p><strong>解;</strong><br><strong>调度顺序为</strong>：P1&gt;P2&gt;p3&gt;P4<br><img src="/images/先到先来调度.png" alt="先到先来调度"><br><strong>周转时间=完成时间-到达时间</strong>&emsp;&emsp;&emsp;&emsp;P1=7-0=7;P2=11-2=9;P3=12-4=8;P4=16-5=11<br><strong>带权周转时间=周转时间/运行时间</strong>&emsp;&emsp;P1=7/7=1;P2=9/4=2.25;P3=8/1=8;P4=11/4=2.75<br><strong>等待时间=周转时间-运行时间</strong>&emsp;&emsp;&emsp;&emsp;P1=7-7=0;P2=9-4=5;P3=8-1=7;P4=11-4=7<br><strong>平均周转时间</strong>=（7+9+8+11）/4=8.75<br><strong>平均带权周转时间</strong>=(1+2.25+8+2.75)/4=3.5<br><strong>平均等待时间</strong>=（045+7+21/4=4.75</p>
+<p><strong>注意：</strong>本例中的进程都是纯计算型的进程，一个进程到达后要么在等待，要么在运行。如果是又有计算、又有I/O操作的进程，其等待时间就是周转时间-运行时间-I/O操作的时间.</p>
+<h2 id="短作业优先-SJF-Shortest-Job-First"><a href="#短作业优先-SJF-Shortest-Job-First" class="headerlink" title="短作业优先(SJF,Shortest Job First)"></a>短作业优先(SJF,Shortest Job First)</h2><script type="math/tex; mode=display">
+FJS
+\begin{cases}
+算法思想 & 追求最少的平均等待时间，最少的平均周转时间、最少的平 \\
+& 均带权周转时间 \\[2ex]
+算法规则 & 最短的作业/进程优先得到服务（所谓“最短”，是指要求服务 \\
+& 时间最短）用于作业/进程调度即可用于作业调度,也可用于\\
+& 进程调度。用于进程调度时称为“短进程优先（SPF,\\
+& Shortest Process First）算法”\\[2ex]
+是否可抢占？ & SJF和SPF是非抢占式的算法。但是也有抢占式的版本一一 \\
+& 最短剩余时间优先（SRTN，Shortest Remaining Time Next \\
+& ）算法\\[2ex]
+优缺点：& 优点：“最短的”平均等待时间、平均周转时间 \\
+& 缺点:不公平。对短作业有利，对长作业不利。可能产生饥 \\
+& 饿现象。另外，作业/进程的运行时间是由用户提供的，并不 \\
+& 一定真实，不一定能做到真正的短作业优先\\[2ex]
+是否会导致饥饿 & 会。如果源源不断地有短作业/进程到来,可能使作业/进程长 \\
+& 时间得不到服务，产生“饥饿”现象。如果一直得不到服务,则 \\
+& 称为"饿死"
+\end{cases}</script><h3 id="例题：-1"><a href="#例题：-1" class="headerlink" title="例题："></a>例题：</h3><p>&emsp;&emsp;1. 各进程到达就绪队列的时间、需要的运行时间如下表所示。使用<em>非抢占式</em>的短作业优先调度算法，计算各进程的等待时间、平均等待时间、周转时间、平均周转时间、带权周转时间、平均带权周转时间.</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 7 \\
+P2 & 2 & 4 \\
+P3 & 4 & 1 \\
+P4 & 5 & 4 \\
+\end{array}</script><p><strong>解:</strong><br>短作业/进程优先调度算法：每次调度时选择当前已到达且运行时间最短的作业/进程。<br>因此，调度顺序为：P1&gt;P3&gt;P2&gt;P4<br><img src="/images/非抢占式调度.png" alt="非抢占式短作业优先调度"><br>周转时间=完成时间-到达时间&emsp;&emsp;&emsp;&emsp;P1=7-0=7：P3=8-4=4；P2=12-2=10；P4=16-5=11<br>带权周转时间=周转时间/运行时间&emsp;&emsp;P1=7/7=1：P3=4/1=4；P2=10/4=2.5；P4=11/4=2.75<br>等待时间=周转时间-运行时间&emsp;&emsp;&emsp;&emsp;P1=7-7=0；P3=4-1=3；P2=10-4=6；P4=11-4=7<br>平均周转时间=(7+4+10+11)/4=8<br>平均带权周转时间=（1+4+2.5+2.75）/4=2.56<br>平均等待时间=(0+3+6+7)/4=4<br>对比FCFS算法的结果，显然SPF算法的平均等待/周转/带权周转时间都要更低.<br>&emsp;&emsp;2. 各进程到达就绪队列的时间、需要的运行时间如下表所示。使用<em>抢占式</em>的短作业优先调度算法，计算各进程的等待时间、平均等待时间、周转时间、平均周转时间、带权周转时间、平均带权周转时间.</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 7 \\
+P2 & 2 & 4 \\
+P3 & 4 & 1 \\
+P4 & 5 & 4 \\
+\end{array}</script><p>最短剩余时间优先(SRNT,)算法：每当有进程加入就绪队列改变时就需要调度，如果新到达的进程剩余时间比当前运行的进程剩余时间更短，则由新进程抢占处理机，当前运行进程重新回到就绪队列。另外，当一个进程完成时也需要调度.<br><img src="/images/抢占式调度.png" alt="抢占式最短剩余时间优先"><br>需要注意的是，当有新进程到达时就绪队列就会改变，就要按照上述规则进行检查。以下Pn（m）表示当前Pn进程剩余时间为m。各个时刻的情况如下：<br>0时刻（P1到达）：P1（7）<br>2时刻（P2到达）：P1（5）、P2（4）<br>4时刻（P3到达）：P1（5）、P2（2）、P3（1）<br>5时刻（P3完成且P4刚好到达）：P1（5）、P2（2）、P4（4）<br>7时刻 (p2完成):p1（5）、P4（4）<br>11时刻 (P4完成):P1(5)<br>周转时间=完成时间-到达时间&emsp;&emsp;&emsp;&emsp;P1=16-0=16；P2=7-2=5；P3=5-4=1；P4=11-5=6<br>带权周转时间=周转时间/运行时间&emsp;&emsp;P1=16/7=2.28；P2=5/4=1.25；P3=1/1=1；P4=6/4=1.5<br>等待时间=周转时间-运行时间&emsp;&emsp;&emsp;&emsp;P1=16-7=9：P2=5-4=1：P3=1-1=0；P4=6-4=2<br>平均周转时间=（16+5+1+6）/4=7<br>平均带权周转时间=(2.28+1.25+1+1.5)/4=1.50<br>平均等待时间=(9+1+0+2)/4=3<br>对比非抢占式的短作业优先算法，显然抢占式的这几个指标又要更低.</p>
+<h2 id="高响应比优先-HRRN"><a href="#高响应比优先-HRRN" class="headerlink" title="高响应比优先(HRRN)"></a>高响应比优先(HRRN)</h2><script type="math/tex; mode=display">
+HRRN
+\begin{cases}
+算法思想 & 要综合考虑作业/进程的等待时间和要求服务的时间 \\[2ex]
+算法规则 & 在每次调度时先计算各个作业/进程的响应比，选择响 \\
+&应比最高的作业/进程为其服务 \\[2ex]
+用于作业/进程调度 & 即可用于作业调度，也可用于进程调度 \\[2ex]
+是否可抢占？ & 非抢占式的算法。因此只有当前运行的作业/进程主动 \\
+&放弃处理机时，才需要调度，才需要许算响应比” \\[2ex]
+优缺点 & 综合考虑了等待时间和运行时间（要求服务时间） \\
+& 等待时间相同时,要求服务时间短的优先(SJF的优点)\\
+& 要求服务时间相同时，等待时间长的优先(FCFS的优点)\\
+& 对于长作业来说，随着等待时间越来越久，其响应比也 \\
+& 会越来越大，从而避免了长作业饥饿的问题\\[2ex]
+是否会导致饥饿 & 不会
+\end{cases}</script><h3 id="例题：-2"><a href="#例题：-2" class="headerlink" title="例题："></a>例题：</h3><p>&emsp;&emsp;各进程到达就绪队列的时间、需要的运行时间如下表所示。使用高响应比优先调度算法，计算各进程的等待时间、平均等待时间、周转时间、平均周转时间、带权周转时间、平均带权周转时间。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 7 \\
+P2 & 2 & 4 \\
+P3 & 4 & 1 \\
+P4 & 5 & 4 \\
+\end{array}</script><p><strong>解:</strong><br>高响应比优先算法：非抢占式的调度算法，只有当前运行的进程主动放弃CPU时（正常/异常完成，或主动阻塞），才需要进行调度，调度时计算所有就绪进程的响应比，选响应比最高的进程上处理机。</p>
+<script type="math/tex; mode=display">
+响应比=\frac {等待时间+要求服务时间}{要求服务时间}</script><p>0时刻：只有P1到达就绪队列，P1上处理机<br>7时刻（P1主动放弃CPU）：就绪队列中有P2（响应比=（5+4）/4=2.25）、P3（（3+1)/1=4）、P4（2+4）/4=1.5），<br>8时刻（P3完成）：P2（(6+4)/4=2.5）、P4((3+4)/4=1.75)<br>12时刻（P2完成）：就绪队列中只剩下P4<br><img src="/images/高响应比优先.png" alt="高响应比优先"></p>
+<h2 id="比较1"><a href="#比较1" class="headerlink" title="比较1"></a>比较1</h2><p><img src="/images/调度算法比较.png" alt=""><br>注：这几种算法主要关心对用户的公平性、平均周转时间、平均等待时间等评价系统整体性能的指标，但是不关心“响应时间”，也并不区分任务的紧急程度，因此对于用户来说，交互性很糟糕。因此这三种算法一般适合用于早期的批处理系统，当然，FCFS算法也常结合其他的算法使用，在现在也扮演着很重要的角色。</p>
+<h2 id="时间片轮转-RR-Round-Robin"><a href="#时间片轮转-RR-Round-Robin" class="headerlink" title="时间片轮转(RR,Round Robin)"></a>时间片轮转(RR,Round Robin)</h2><script type="math/tex; mode=display">
+时间片轮转
+\begin{cases}
+算法思想 & 公平地、轮流地为各个进程服务，让每个进程在一定时间间隔内都可以得到响应 \\[2ex]
+算法规则 & 按照各进程到达就绪队列的顺序，轮流让各个进程执行一个时间片（如100ms）。若进程未在一个时间片内执行完，则剥夺处理机，将进程重新放到就绪队列队尾重新排队。\\[2ex]
+用于作业/进程调度 & 用于进程调度（只有作业放入内存建立了相应的进程后，才能被分配处理机时间片） \\[2ex]
+是否可抢占？若进程未能在时间片内运行完，将被强行剥夺处理机使用权，因此时间片轮转调度算法属于抢占式的算法。由时钟装置发出时钟中断来通知CPU时间片已到 \\[2ex]
+优缺点 & 优点：公平；响应快，适用于分时操作系统；缺点：由于高频率的进程切换，因此有一定开销；不区分任务的紧急程度。是否会导致饥饿 & 不会 \\[2ex]
+补充 & 时间片太大或太小分别有什么影响？
+\end{cases}</script><h3 id="例题：-3"><a href="#例题：-3" class="headerlink" title="例题："></a>例题：</h3><p>&emsp;&emsp;各进程到达就绪队列的时间、需要的运行时间如下表所示。使用时间片轮转调度算法，分析时间片大小分别是2、5时的进程运行情况。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 5 \\
+P2 & 2 & 4 \\
+P3 & 4 & 1 \\
+P4 & 5 & 6 \\
+\end{array}</script><p>常用于分时操作系统，更注重“响应时间”，因而此处不计算周转时间<br>时间片轮转调度算法：轮流让就绪队列中的进程依次执行一个时间片（每次选择的都是排在就绪队列队头的进程）<br>设时间片大小为2（注：以下括号内表示当前时刻就绪队列中的进程、进程的剩余运行时间）<br>0时刻（P1（5））：0时刻只有P1到达就绪队列，让P1上处理机运行一个时间片<br>2时刻（P2（4）&gt;P1（3]）：2时刻P2到达就绪队列，P1运行完一个时间片，被剥夺处理机，重新放到队尾。<br>此时P2排在队头，因此让P2上处理机。（注意：2时刻，P1下处理机，同一时刻新进程P2到达，如果在题目中遇到这种情况，默认新到达的进程先进入就绪队列）<br>4时刻（P1（3）&gt;P3（1）&gt;P2（2））：4时刻，P3到达，先插到就绪队尾，紧接着，P2下处理机也插到队尾<br>5时刻（P3（1）&gt;P2（2）&gt;P4（6））；5时刻，P4到达插到就绪队尾（注意；由于P1的时间片还没用完，因此暂时不调度。另外,此时P1处于运行态,并不在就绪队列中)<br>6时刻（P3（1）→P2（2）→P4（6）→P1（1））：6时刻，P1时间片用完，下处理机，重新放回就绪队尾，发生调度<br>7时刻（P2（2）→P4（6）&gt;P1（1））：虽然P3的时间片没用完，但是由于P3只需运行1个单位的时间，运行完了会主动放弃处理机，因此也会发生调度。队头进程P2上处理机。<br>9时刻（P4（6）&gt;P1（1））：进程P2时间片用完，并刚好运行完，发生调度，P4上处理机<br>11时刻（P(1)&gt;P4（4））：P4时间片用完，重新回到就绪队列。P1上处理机<br>12时刻（P4（4））：P1运行完，主动放弃处理机，此时就绪队列中只剩P4，P4上处理机<br>14时刻（）：就绪队列为空，因此让P4接着运行一个时间片。<br>16时刻：所有进程运行结束<br><img src="/images/RR.png" alt=""><br>若时间片大小为5<br>0时刻（P1（5））：只有P1到达，P1上处理机。<br>2时刻（P2（4））：P2到达，但P1时间片尚未结束，因此暂不调度4时刻（P2（4）&gt;P3（1））：P3到达，但P1时间片尚未结束，因此暂不调度5时刻（P2（4）&gt;P3（1）&gt;P4（6））：P4到达，同时，P1运行结束。发生调度，P2上处理机。<br>9时刻（P3（1）&gt;P4（6））：P2运行结束，虽然时间片没用完，但是会主动放弃处理机。发生调度。<br>10时刻（P4（6））：P3运行结束，虽然时间片没用完，但是会主动放弃处理机。发生调度。<br>15时刻（）：P4时间片用完，但就绪队列为空，因此会让P4继续执行一个时间片。<br>16时刻（）：P4运行完，主动放弃处理机。所有进程运行完。<br><img src="/images/RR5.png" alt=""><br>如果时间片太大，使得每个进程都可以在一个时间片内就完成，则时间片轮转调度算法退化为先来先服务调度算法，并且会增大进程响应时间。因此时间片不能太大。<br>另一方面,进程调度,切换是有时间代价的(保存,恢复运行环境),因此如果时间片太小,会导致进程切换过于频繁.系统会花大量的时间来处理进程切换.从而导致实际用于进程执行的时间比例减少,可见时间片也不能太小.</p>
+<h2 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h2><p>算法思想:随着计算机的发展，特别是实时操作系统的出现，越来越多的应用场景需要根据任务的紧急程度来决定处理顺序<br>算法规则:调度时选择优先级最高的作业/进程<br>用于作业/进程调度:既可用于作业调度,也可用于进程调度,I/O调度<br>是否可抢占？:抢占式、非抢占式都有。<br>做题时的区别在于:非抢占式只需在进程主动放弃处理机时进行调度即可，而抢占式还需在就绪队列变化时，检查是否会发生抢占。<br>优缺点:<br>优点:用优先级区分紧急程度、重要程度，适用于实时操作系统。可灵活地调整对各种作业进程的偏好程度。<br>缺点:若源源不断地有高优先级进程到来，则可能导致饥饿<br>是否会导致饥饿:会</p>
+<h3 id="例题：-4"><a href="#例题：-4" class="headerlink" title="例题："></a>例题：</h3><p>&emsp;&emsp;1. 各进程到达就绪队列的时间、需要的运行时间、进程优先数如下表所示。使用非抢占式的优先级调度算法，分析进程运行情况。（注：优先数越大，优先级越高）<br><img src="/images/优先级算法题目.png" alt=""><br>非抢占式的优先级调度算法：每次调度时选择当前已到达且优先级最高的进程。当前进程主动放弃处理机时发生调度。<br><img src="/images/非抢占优先调度.png" alt=""><br>注：以下括号内表示当前处于就绪队列的进程<br>0时刻（P1）：只有P1到达，P1上处理机。<br>7时刻（P2、P3、P4）：P1运行完成主动放弃处理机，其余进程都已到达，P3优先级最高，P3上处理机。<br>8时刻（P2、P4）：P3完成，P2、P4优先级相同，由于P2先到达，因此P2优先上处理机12时刻（P4）：P2完成，就绪队列只剩P4，P4上处理机。<br>16时刻（）：P4完成，所有进程都结束</p>
+<p>&emsp;&emsp;2. 各进程到达就绪队列的时间、需要的运行时间、进程优先数如下表所示。使用抢占式的优先级调度算法，分析进程运行情况。（注：优先数越大，优先级越高）<br><img src="/images/优先级算法题目.png" alt=""><br>非抢占式的优先级调度算法：每次调度时选择当前已到达且优先级最高的进程。当前进程主动放弃处理机时发生调度。另外，当就绪队列发生改变时也需要检查是会发生抢占。<br><img src="/images/抢占式优先调度.png" alt=""><br>注：以下括号内表示当前处于就绪队列的进程<br>0时刻（P1）：只有P1到达，P1上处理机。<br>2时刻（P2）：P2到达就绪队列，优先级比P1更高，发生抢占。P1回到就绪队列，P2上处理机。<br>4时刻（P1、P3）：P3到达，优先级比P2更高，P2回到就绪队列，P3抢占处理机。<br>5时刻（P1、P2、P4）：P3完成，主动释放处理机，同时，P4也到达，由于P2比P4更先进入就绪队列，因此选择P2上处理机<br>7时刻（P1、P4）：P2完成，就绪队列只剩P1、P4，P4上处理机。<br>11时刻（P1）：P4完成，P1上处理机<br>16时刻（）：P1完成，所有进程均完成</p>
+<h2 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h2><p>算法思想:对其他调度算法的折中权衡<br>算法规则:<br>1.设置多级就绪队列，各级队列优先级从高到低，时间片从小到大<br>2.新进程到达时先进入第1级队列，按FCFS原则排队等待被分配时间片，若用完时间片进程还未结束，则进程进入下级队列队尾。如果此时已经是在最下级的队列，则重新放回该队列队尾3.只有第k级队列为空时，才会为k＋1级队头的进程分配时间片<br>用于作业进程调度:用于进程调度<br>是否可抢占？抢古式的算法。在k级队列的进程运行过程中，若更上级的队列（1～k1级）中进入了一个新进程，则由于新进程处于优先级更高的队列中，因此新进程会抢占处理机，原来运行的进程放回k级队列队尾。<br>优缺点:对各类型进程相对公平（FCFS的优点）每个新到达的进程都可以很快就得到响应（RR的优点）；短进程只用较少的时间就可完成（SPF的优点）:不必实现估计进程的运行时间（避免用户作假）；可灵活地调整对各类进程的偏好程度，比如CPU密集型进程、I/O密集型进程（拓展:可以将因/O而阻塞的进程重新放回原队列，这样/O型进程就可以保持较高优先级）<br>是否会导致饥饿:会</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题:"></a>例题:</h3><p>各进程到达就绪队列的时间、需要的运行时间如下表所示。使用多级反馈队列调度算法，分析进程运行的过程。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c|c}
+进程&到达时间&运行时间 \\
+\hline
+P1 & 0 & 8 \\
+P2 & 1 & 4 \\
+P3 & 5 & 1 \\
+\end{array}</script><p><img src="/images/多级反馈.png" alt=""><br>p1（1）-＞p2（1）-＞p1（2）<br>-＞p2（1）-＞p3（1）-＞p2（2）<br>＞p1（4）-＞p1（1）<br>设置多级就绪队列，各级队列优先级从高到低，时间片从小到大<br>新进程到达时先进入第1级队列，按FCFs原则排队等待被分配时间片。若用完时间片进程还未结束，则进程进入下一级队列队尾。如果此时已经在最下级的队列，则重新放回最下级队列队尾<br>只有第k级队列为空时，才会为k＋1级队头的进程分配时间片<br>被抢占处理机的进程重新放回原队列队尾</p>
+<h2 id="比较2"><a href="#比较2" class="headerlink" title="比较2"></a>比较2</h2><p><img src="/images/总结2.png" alt=""><br>注：比起早期的批处理操作系统来说，由于计算机造价大幅降低，因此之后出现的交互式操作系统（包括分时操作系统、实时操作系统等）更注重系统的响应时间、公平性、平衡性等指标。而这几种算法恰好也能较好地满足交互式系统的需求。因此这三种算法适合用于交互式系统。（比如UNIX使用的就是多级反馈队列调度算法）</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论。 </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 intern
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+
+// 网易云音乐链接
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=482172&auto=1&height=32"></iframe>
+</div>
+
+<!--以下代码是为了支持随时拖动音乐控件的位置，如没有需求，可去掉下面代码-->
+<script>
+    var $DOC = $(document)
+    $('#musicMouseDrag').on('mousedown', function (e) {
+      // 阻止文本选中
+      $DOC.bind("selectstart", function () {
+        return false;
+      });
+      $('#musicDragArea').css('height', '100%');
+      var $moveTarget = $('#musicMouseDrag');
+      $moveTarget.css('border', '1px dashed grey')
+      var div_x = e.pageX - $moveTarget.offset().left;
+      var div_y = e.pageY - $moveTarget.offset().top;
+      $DOC.on('mousemove', function (e) {
+        var targetX = e.pageX - div_x;
+        var targetY = e.pageY - div_y;
+        targetX = targetX < 0 ? 0 : (targetX + $moveTarget.outerWidth() >= window.innerWidth) ? window.innerWidth - $moveTarget.outerWidth() : targetX;
+        targetY = targetY < 0 ? 0 : (targetY + $moveTarget.outerHeight() >= window.innerHeight) ? window.innerHeight - $moveTarget.outerHeight() : targetY;
+        $moveTarget.css({'left': targetX + 'px', 'top': targetY + 'px', 'bottom': 'inherit', 'right': 'inherit'})
+      }).on('mouseup', function () {
+        $DOC.unbind("selectstart");
+        $DOC.off('mousemove')
+        $DOC.off('mouseup')
+        $moveTarget.css('border', 'none')
+        $('#musicDragArea').css('height', '10px');
+      })
+    })
+</script>
+</html>
